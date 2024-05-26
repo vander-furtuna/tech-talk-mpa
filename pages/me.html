@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../styles.css" />
+        <title>MPA</title>
+    </head>
+    <body>
+        <header>
+            <span>Tech Talk / MPA</span>
+            <img src="../assets/logo.png" alt="Logo Vander Dev" class="logo" />
+        </header>
+
+        <main>
+            <h1>Meu Perfil</h1>
+
+            <div class="profile">
+                <img src="" alt="" />
+                <strong></strong>
+            </div>
+
+            <div class="btns-container">
+                <a href="../index.html" class="back">Voltar</a>
+                <a href="./all.html" class="link">Mais Perfis</a>
+            </div>
+        </main>
+    </body>
+
+    <script type="text/javascript">
+        const profile = document.querySelector('.profile');
+        const img = profile.querySelector('img');
+        const strong = profile.querySelector('strong');
+
+        async function getProfile() {
+            try {
+                const response = await fetch(
+                    'https://api.github.com/users/vander115',
+                );
+                const data = await response.json();
+
+                img.src = data.avatar_url;
+                strong.textContent = data.login;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        getProfile();
+
+        img.src = user.img;
+        strong.textContent = user.name;
+    </script>
+</html>
