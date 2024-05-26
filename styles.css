@@ -23,6 +23,12 @@ header {
     align-items: center;
     width: 100%;
     padding: 2rem;
+
+    span {
+        color: white;
+        opacity: 0.8;
+        font-size: 1rem;
+    }
 }
 
 main {
